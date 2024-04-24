@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import TemporaryDrawer from './drawer';
 
 
 function Header() {
@@ -25,6 +26,7 @@ function Header() {
                 </a>
 
             </div>
+            <div className='mobile-drawer'><TemporaryDrawer/></div>
         </div>
     );
 }
