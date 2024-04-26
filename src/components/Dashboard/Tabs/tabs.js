@@ -7,7 +7,7 @@ import { color } from 'framer-motion';
 import { create } from '@mui/material/styles/createTransitions';
 import { createTheme, ThemeProvider } from '@mui/material';
 
-export default function TabsComponent() {
+export default function TabsComponent({ coins }) {
   const [value, setValue] = useState('grid');
 
   const handleChange = (event, newValue) => {
@@ -40,10 +40,22 @@ export default function TabsComponent() {
           </TabList>
 
         <TabPanel value="grid">
-          <div>mapping for grids</div>
+          <div>{coins.map((item,i)=>{
+            return (
+              <p key={i}>
+                {i + 1}.{item.name}
+              </p>
+            )
+          })}</div>
         </TabPanel>
         <TabPanel value="list">
-          <div>mapping for lists</div>
+        <div>{coins.map((item,i)=>{
+            return (
+              <p key={i}>
+                {i + 1}.{item.id}
+              </p>
+            )
+          })}</div>
         </TabPanel>
       </TabContext>
     </ThemeProvider>
