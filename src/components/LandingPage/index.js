@@ -1,6 +1,9 @@
 import React from 'react'
 import './styles.css'
 import Button from '../Common/Button'
+import iphone from '../../assets/iphone.png'
+import gradient from '../../assets/gradient.png'
+import {motion} from "framer-motion"
 
 function MainComponent() {
   return (
@@ -16,7 +19,10 @@ function MainComponent() {
                 <Button text={"Share"} outlined={true} />
             </div>
         </div>
-        <div>phone</div>
+        <div className='phone-container'>
+            <motion.img src={iphone} className='iphone' initial={{ y:-10 }} animate={{ y:10 }} transition={{type:"smooth", repeatType: "mirror", duration: 2, repeat:Infinity,}}/>
+            <img src={gradient} className='gradient'/>
+        </div>
     </div>
   )
 }
