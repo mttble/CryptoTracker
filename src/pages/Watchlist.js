@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../components/Common/Header'
 
-function DashboardPage() {
+function WatchlistPage() {
   return (
     <div>
       <Header />
@@ -9,4 +9,4 @@ function DashboardPage() {
   )
 }
 
-export default DashboardPage
+export default WatchlistPage
