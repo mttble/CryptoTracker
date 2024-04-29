@@ -40,9 +40,12 @@ export default function TabsComponent({ coins }) {
         <TabPanel value="grid">
           <div>{coins.map((item,i)=>{
             return (
-              <p key={i}>
-                {i + 1}.{item.name}
-              </p>
+              <div>
+                <img src={item.image} alt={item.name} />
+                <p key={i}>
+                  {i + 1}.{item.name}
+                </p>
+              </div>
             )
           })}</div>
         </TabPanel>
