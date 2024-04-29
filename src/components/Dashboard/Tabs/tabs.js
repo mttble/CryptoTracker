@@ -3,8 +3,6 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { color } from 'framer-motion';
-import { create } from '@mui/material/styles/createTransitions';
 import { createTheme, ThemeProvider } from '@mui/material';
 
 export default function TabsComponent({ coins }) {
