@@ -4,6 +4,7 @@ import Button from '../Common/Button'
 import iphone from '../../assets/iphone.png'
 import gradient from '../../assets/gradient.png'
 import {motion} from "framer-motion"
+import { Link } from 'react-router-dom'
 
 function MainComponent() {
   return (
@@ -15,7 +16,9 @@ function MainComponent() {
                 Track Crypto through a public API in real time. Visit the dashboard to do so!
             </p>
             <div className='btn-flex'>
-                <Button text={'Dashboard'} to="/dashboard" />
+                <Link to="/dashboard">
+                    <Button text={'Dashboard'} />
+                </Link>
                 <Button text={"Share"} outlined={true} />
             </div>
         </div>
