@@ -3,9 +3,10 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, List, ThemeProvider } from '@mui/material';
 import Grid from '../Grid';
 import './styles.css';
+import CryptoList from '../CryptoList';
 
 export default function TabsComponent({ coins }) {
   const [value, setValue] = useState('grid');
@@ -47,13 +48,11 @@ export default function TabsComponent({ coins }) {
           </div>
         </TabPanel>
         <TabPanel value="list">
-        <div>{coins.map((item,i)=>{
-            return (
-              <p key={i}>
-                {i + 1}.{item.id}
-              </p>
-            )
-          })}</div>
+        <table className='list-table'>
+          {coins.map((coin,i)=>{
+            return <CryptoList coin={coin} key={i} />
+          })}
+        </table>
         </TabPanel>
       </TabContext>
     </ThemeProvider>

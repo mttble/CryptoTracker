@@ -15,7 +15,7 @@ function MainComponent() {
                 Track Crypto through a public API in real time. Visit the dashboard to do so!
             </p>
             <div className='btn-flex'>
-                <Button text={"Dashboard"} />
+                <Button text={'Dashboard'} to="/dashboard" />
                 <Button text={"Share"} outlined={true} />
             </div>
         </div>
