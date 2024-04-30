@@ -85,6 +85,7 @@
     align-items: center;
     color: var(--green);
     font-size: 1.1rem;
+    min-width: 2rem;
 }
 
 .icon-chip-red {

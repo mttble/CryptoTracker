@@ -12,7 +12,7 @@ function CyptoList({ coin }) {
             <img src={coin.image} alt={coin.name} className='coin-logo'/>
         </td>
         </Tooltip>
-        <Tooltip title="Coin" placement="top">
+        <Tooltip title="Coin" placement="top-start">
         <td>
             <div className='name-col'>
                 <p className='coin-symbol'>{coin.symbol}</p>
@@ -32,7 +32,7 @@ function CyptoList({ coin }) {
         </td>
         </Tooltip>
         ) : (
-        <Tooltip title="Price Change 24h" placement="top">
+        <Tooltip title="Price Change 24h" placement="top-start">
         <td className='chip-flex'>
             <div className='price-chip chip-red'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
@@ -53,16 +53,16 @@ function CyptoList({ coin }) {
                     : "var(--green)"
                 }}
             >
-                    ${coin.current_price.toLocaleString()}
+                    ${coin.current_price.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 6 })}
             </h3>
         </td>
         </Tooltip>
-        <Tooltip title="24h Volume" placement="top">
+        <Tooltip title="24h Volume" placement="top-end">
         <td>
             <p className='total_volume td-right-align'>{coin.total_volume.toLocaleString()}</p>
         </td>
         </Tooltip>
-        <Tooltip title="Market Cap" placement="top">
+        <Tooltip title="Market Cap" placement="top-end">
         <td>
             <p className='total_volume td-right-align'>{coin.market_cap.toLocaleString()}</p>
         </td>
