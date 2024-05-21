@@ -3,6 +3,7 @@ import './styles.css'
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
 import { Tooltip } from '@mui/material';
+import { convertNumber } from '../../../functions/convertNumber';
 
 function CyptoList({ coin }) {
   return (
@@ -57,14 +58,26 @@ function CyptoList({ coin }) {
             </h3>
         </td>
         </Tooltip>
+
         <Tooltip title="24h Volume" placement="top-end">
-        <td>
+        <td className='desktop-td-mkt'>
             <p className='total_volume td-right-align td-shrink'>{coin.total_volume.toLocaleString()}</p>
         </td>
         </Tooltip>
+        <Tooltip title="24h Volume" placement="top-end">
+        <td className='mobile-td-mkt'>
+            <p className='total_volume td-right-align td-shrink'>{convertNumber(coin.total_volume)}</p>
+        </td>
+        </Tooltip>
+
         <Tooltip title="Market Cap" placement="top-end">
-        <td>
+        <td className='desktop-td-mkt'>
             <p className='total_volume td-right-align td-shrink'>{coin.market_cap.toLocaleString()}</p>
+        </td>
+        </Tooltip>
+        <Tooltip title="Market Cap" placement="top-end">
+        <td className='mobile-td-mkt'>
+            <p className='total_volume td-right-align td-shrink'>{convertNumber(coin.market_cap)}</p>
         </td>
         </Tooltip>
     
