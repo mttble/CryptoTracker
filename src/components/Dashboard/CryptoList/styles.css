@@ -79,6 +79,13 @@
     .mobile-td-mkt {
         display: block;
     }
+    .MuiTabPanel-root {
+        padding: 0 !important;
+    }
+    .list-row {
+        margin: 1rem;
+        padding: 0.5rem;
+    }
     /* .td-shrink {
        
     }
