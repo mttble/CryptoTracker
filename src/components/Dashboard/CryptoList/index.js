@@ -15,18 +15,18 @@ function CyptoList({ coin }) {
         <Tooltip title="Coin" placement="top-start">
         <td>
             <div className='name-col'>
-                <p className='coin-symbol'>{coin.symbol}</p>
-                <p className='coin-name'>{coin.name}</p>
+                <p className='coin-symbol td-shrink'>{coin.symbol}</p>
+                <p className='coin-name td-shrink'>{coin.name}</p>
             </div>
         </td>
         </Tooltip>
         {coin.price_change_percentage_24h > 0 ? (
         <Tooltip title="Price Change 24h" placement="top">
         <td className='chip-flex'>
-            <div className='price-chip'>
+            <div className='price-chip td-shrink'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
             </div>
-            <div className='icon-chip'>
+            <div className='icon-chip td-icon'>
                 <TrendingUpRoundedIcon/>
             </div>
         </td>
@@ -34,10 +34,10 @@ function CyptoList({ coin }) {
         ) : (
         <Tooltip title="Price Change 24h" placement="top-start">
         <td className='chip-flex'>
-            <div className='price-chip chip-red'>
+            <div className='price-chip chip-red td-shrink'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
             </div>
-            <div className='icon-chip icon-chip-red'>
+            <div className='icon-chip icon-chip-red td-icon'>
                 <TrendingDownRoundedIcon/>
             </div>
         </td>
@@ -45,7 +45,7 @@ function CyptoList({ coin }) {
         )}
         <Tooltip title="Current Price" placement="top">
         <td>
-            <h3 className='coin-price td-center-align' 
+            <h3 className='coin-price td-center-align td-shrink' 
             style={{
                 color:
                     coin.price_change_percentage_24h < 0 
@@ -59,12 +59,12 @@ function CyptoList({ coin }) {
         </Tooltip>
         <Tooltip title="24h Volume" placement="top-end">
         <td>
-            <p className='total_volume td-right-align'>{coin.total_volume.toLocaleString()}</p>
+            <p className='total_volume td-right-align td-shrink'>{coin.total_volume.toLocaleString()}</p>
         </td>
         </Tooltip>
         <Tooltip title="Market Cap" placement="top-end">
         <td>
-            <p className='total_volume td-right-align'>{coin.market_cap.toLocaleString()}</p>
+            <p className='total_volume td-right-align td-shrink'>{coin.market_cap.toLocaleString()}</p>
         </td>
         </Tooltip>
     
