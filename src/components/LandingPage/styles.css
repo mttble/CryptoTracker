@@ -92,7 +92,7 @@
     @media only screen and (max-width: 800px) {
         .flex-info {
             flex-direction: column;
-            align-items: center; /* Center items horizontally */
+            align-items: center;
         }
     
         .phone-container {
@@ -104,7 +104,7 @@
     
         .iphone {
             position: absolute;
-            z-index: 2; /* Higher z-index */
+            z-index: 2;
             min-width: 300px;
             width: 50%;
             right: 0;
@@ -112,7 +112,7 @@
     
         .gradient {
             position: absolute;
-            z-index: 1; /* Lower z-index */
+            z-index: 1;
             min-width: 250px;
             width: 40%;
             top: 7rem;
@@ -121,14 +121,14 @@
     
         .left-component {
             width: 100%;
-            text-align: center; /* Center text */
+            text-align: center;
         }
     
         .track-crypto-heading,
         .real-time-heading {
             font-size: 3rem;
             text-align: center;
-            margin: 0.5rem 0; /* Add some margin for spacing */
+            margin: 0.5rem 0;
         }
     
         .info-text {
@@ -137,7 +137,7 @@
     
         .btn-flex {
             justify-content: center;
-            margin-top: 1.5rem; /* Adjust margin for spacing */
+            margin-top: 1.5rem;
         }
     
         .track-crypto-heading {
@@ -154,20 +154,20 @@
     
         .iphone {
             position: absolute;
-            z-index: 2; /* Higher z-index */
+            z-index: 2;
             min-width: 250px;
             width: 50%;
             left: -10vw;
-            transform: translateX(-50%); /* Shift it back by half of its width */
+            transform: translateX(-50%);
         }
     
         .gradient {
             position: absolute;
-            z-index: 1; /* Lower z-index */
+            z-index: 1;
             min-width: 200px;
             width: 40%;
             top: 6rem;
-            left: 60%; /* Center the left edge to the middle of the container */
-            transform: translateX(-50%); /* Shift it back by half of its width */
+            left: 60%;
+            transform: translateX(-50%);
         }
     }
