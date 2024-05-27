@@ -49,7 +49,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .td-shrink {
+    .td-shrink-list {
         font-size: 70% !important;
     }
     .coin-logo {
@@ -90,6 +90,53 @@
        
     }
     .coin-logo {
+        
+    }
+    .td-image {
+        
+    }
+    .price-chip {
+        
+    } */
+
+
+    
+}
+@media only screen and (max-width: 750px) {
+    
+    .list-table {
+        width: 100%;
+    }
+    .desktop-td-mkt {
+        display: none;
+    }
+
+    .mobile-td-mkt {
+        display: block;
+    }
+    .MuiTabPanel-root {
+        padding: 0 !important;
+    }
+    .list-row {
+        margin: 1rem;
+        padding: 0.2rem;
+        margin: 0.5rem;
+    }
+    .chip-flex{
+        display: flex;
+        margin: 0rem;
+        padding: 0;
+        max-width: 50px;
+    
+    }
+    .price-chip{
+        min-width: 30px !important;
+        padding: 2px 2px;
+    }
+    .td-shrink-list {
+        font-size: 50% !important;
+    }
+    /* .coin-logo {
         
     }
     .td-image {
