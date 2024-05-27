@@ -23,8 +23,8 @@ function CyptoList({ coin }) {
         </Tooltip>
         {coin.price_change_percentage_24h > 0 ? (
         <Tooltip title="Price Change 24h" placement="top">
-        <td className='chip-flex'>
-            <div className='price-chip td-shrink-list'>
+        <td className='chip-flex-list'>
+            <div className='price-chip-list td-shrink-list'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
             </div>
             <div className='icon-chip td-icon'>
@@ -35,7 +35,7 @@ function CyptoList({ coin }) {
         ) : (
         <Tooltip title="Price Change 24h" placement="top-start">
         <td className='chip-flex'>
-            <div className='price-chip chip-red td-shrink-list'>
+            <div className='price-chip-list chip-red td-shrink-list'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
             </div>
             <div className='icon-chip icon-chip-red td-icon'>

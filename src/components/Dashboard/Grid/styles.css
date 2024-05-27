@@ -49,7 +49,7 @@
     margin: 1rem 1.5rem;
 }
 
-.price-chip {
+.price-chip-grid {
     border: 2px solid var(--green);
     border-radius: 2rem;
     padding: 0.5rem 1.5rem;
@@ -59,7 +59,7 @@
     color: var(--green);
     min-width: 64px;
 }
-.price-chip:hover, .icon-chip:hover {
+.price-chip-grid:hover, .icon-chip:hover {
     background-color: var(--green);
     color: var(--white);
     transition: all 0.3s ease;

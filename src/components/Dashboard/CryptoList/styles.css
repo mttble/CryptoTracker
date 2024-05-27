@@ -36,6 +36,30 @@
     display: none;
 }
 
+.price-chip-list {
+    border: 2px solid var(--green);
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--green);
+    min-width: 64px;
+}
+.price-chip-list:hover, .icon-chip:hover {
+    background-color: var(--green);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.chip-flex-list {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+    margin: 1rem 1.5rem;
+}
+
 @media only screen and (max-width: 1200px) {
     .list-table {
         width: 95%;
@@ -60,7 +84,7 @@
         width: 1rem !important;
         margin-right: 1rem;
     }
-    .price-chip {
+    .price-chip-list {
         max-width: 80px; 
         padding: 2px 2px; 
     }
@@ -122,14 +146,7 @@
         padding: 0.2rem;
         margin: 0.5rem;
     }
-    .chip-flex{
-        display: flex;
-        margin: 0rem;
-        padding: 0;
-        max-width: 50px;
-    
-    }
-    .price-chip{
+    .price-chip-list{
         min-width: 30px !important;
         padding: 2px 2px;
     }

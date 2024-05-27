@@ -15,7 +15,7 @@ function Grid({ coin }) {
         </div>
         {coin.price_change_percentage_24h > 0 ? (
         <div className='chip-flex'>
-            <div className='price-chip'>
+            <div className='price-chip-grid'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
             </div>
             <div className='icon-chip'>
@@ -24,7 +24,7 @@ function Grid({ coin }) {
         </div>
         ) : (
         <div className='chip-flex'>
-            <div className='price-chip chip-red'>
+            <div className='price-chip-grid chip-red'>
                 {coin.price_change_percentage_24h.toFixed(2)}%
             </div>
             <div className='icon-chip icon-chip-red'>
