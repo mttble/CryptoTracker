@@ -45,8 +45,8 @@ function DashboardPage() {
   }
 
   var filteredCoins = coins.filter((item) => 
-    item.name.toLowerCase().includes(search.toLowerCase())
-  );
+    item.name.toLowerCase().includes(search.toLowerCase()) || item.symbol.toLowerCase().includes(search.toLowerCase())
+)
   
   useEffect(() => {
     const cachedCoins = localStorage.getItem('coins');
