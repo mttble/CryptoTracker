@@ -25,7 +25,7 @@ export default function PaginationComponent({ page, handlePageChange }) {
         }}
         count={10}
         page={page}
-        onChange={handlePageChange}
+        onChange={(event,value) => handlePageChange(event, value)}
       />
     </div>
   );
