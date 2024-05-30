@@ -1,47 +1,17 @@
-// import React, { useEffect, useState } from 'react'
-// import Header from '../components/Common/Header'
-// import TabsComponent from '../components/Dashboard/Tabs/tabs'
-// import axios from 'axios'
-
-// function DashboardPage() {
-
-//     const [coins, setCoins] = useState([])
-
-//     useEffect(() => {
-//         axios.get(
-//             "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-//         )
-//         .then((response) => {
-//             console.log("response", response)
-//             setCoins(response.data)
-//         })
-//         .catch((error) => {
-//             console.log("error", error)
-//         })
-//     }, [])
-
-//     return (
-//         <div>
-//         <Header />
-//         <TabsComponent coins={coins}/>
-//         </div>
-//   )
-// }
-
-// export default DashboardPage
-
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Common/Header';
 import TabsComponent from '../components/Dashboard/Tabs/tabs';
 import axios from 'axios';
 import Search from '../components/Dashboard/Search';
 import PaginationComponent from '../components/Dashboard/Pagination';
+import Loader from '../components/Common/Loader';
 
 function DashboardPage() {
   const [coins, setCoins] = useState([]);
   const [paginatedcoins, setPaginatedCoins] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
   const  handlePageChange = (event, value) => {
     setPage(value);
     var previousIndex = (value - 1) * 10;
@@ -71,6 +41,7 @@ useEffect(() => {
       const coinsData = JSON.parse(cachedCoins);
       setCoins(coinsData);
       setPaginatedCoins(coinsData.slice((page - 1) * 10, page * 10));
+      setIsLoading(false); // Set isLoading to false here
       return;
     }
   }
@@ -84,6 +55,7 @@ useEffect(() => {
     setPaginatedCoins(response.data.slice((page - 1) * 10, page * 10));
     localStorage.setItem('coins', JSON.stringify(response.data));
     localStorage.setItem('coinsTime', new Date().getTime());
+    setIsLoading(false);
   })
   .catch((error) => {
     console.log("error", error);
@@ -91,12 +63,17 @@ useEffect(() => {
 }, [page]);
 
   return (
-    <div>
+    <>
       <Header />
-      <Search search={search} onSearchChange={onSearchChange}/>
-      <TabsComponent coins={search ? filteredCoins : paginatedcoins}/>
-      {!search && <PaginationComponent page={page} handlePageChange={handlePageChange}/> }
-    </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+      <div>
+        <Search search={search} onSearchChange={onSearchChange}/>
+        <TabsComponent coins={search ? filteredCoins : paginatedcoins}/>
+        {!search && <PaginationComponent page={page} handlePageChange={handlePageChange}/> }
+      </div>)}
+    </>
   );
 }
 
