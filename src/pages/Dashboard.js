@@ -35,6 +35,7 @@ import Header from '../components/Common/Header';
 import TabsComponent from '../components/Dashboard/Tabs/tabs';
 import axios from 'axios';
 import Search from '../components/Dashboard/Search';
+import PaginationComponent from '../components/Dashboard/Pagination';
 
 function DashboardPage() {
   const [coins, setCoins] = useState([]);
@@ -86,6 +87,7 @@ function DashboardPage() {
       <Header />
       <Search search={search} onSearchChange={onSearchChange}/>
       <TabsComponent coins={filteredCoins}/>
+      <PaginationComponent />
     </div>
   );
 }
