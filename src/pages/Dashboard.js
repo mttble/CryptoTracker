@@ -94,8 +94,8 @@ useEffect(() => {
     <div>
       <Header />
       <Search search={search} onSearchChange={onSearchChange}/>
-      <TabsComponent coins={paginatedcoins}/>
-      <PaginationComponent page={page} handlePageChange={handlePageChange}/>
+      <TabsComponent coins={search ? filteredCoins : paginatedcoins}/>
+      {!search && <PaginationComponent page={page} handlePageChange={handlePageChange}/> }
     </div>
   );
 }
