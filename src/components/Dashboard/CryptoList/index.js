@@ -41,7 +41,7 @@ function CryptoList({ coin }) {
             </Tooltip>
             ) : (
             <Tooltip title="Price Change 24h" placement="top-start">
-            <td className='chip-flex'>
+            <td className='chip-flex-list'>
                 <div className='price-chip-list chip-red td-shrink-list'>
                     {coin.price_change_percentage_24h.toFixed(2)}%
                 </div>
