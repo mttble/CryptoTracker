@@ -60,6 +60,23 @@
     margin: 1rem 1.5rem;
 }
 
+.watchlist-icon-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    color: var(--green);
+    padding: 0.5rem;
+    height: 1.5rem;
+    width: 1.5rem !important;
+  }
+  
+  .watchlist-icon-list-red {
+    border: 2px solid var(--red);
+    color: var(--red);
+  }
+
 @media only screen and (max-width: 1200px) {
     .list-table {
         width: 95%;
@@ -110,18 +127,16 @@
         margin: 1rem;
         padding: 0.5rem;
     }
-    /* .td-shrink {
-       
-    }
-    .coin-logo {
+    
+    .watchlist-icon-list {
         
-    }
-    .td-image {
-        
-    }
-    .price-chip {
-        
-    } */
+        border: 1.5px solid var(--green);
+        border-radius: 50%;
+        color: var(--green);
+        padding: 0.2rem;
+        height: 1.2rem;
+        width: 1.2rem !important;
+      }
 
 
     
