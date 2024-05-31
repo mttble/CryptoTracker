@@ -166,7 +166,15 @@
         padding: 2px 2px;
     }
     .td-shrink-list {
-        font-size: 50% !important;
+        font-size: 44% !important;
+    }
+
+    .name-col-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: 2rem;
+        max-width: 2rem;
     }
     /* .coin-logo {
         

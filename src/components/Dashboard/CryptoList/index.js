@@ -22,7 +22,7 @@ function CryptoList({ coin }) {
             </Tooltip>
             <Tooltip title="Coin" placement="top-start">
             <td>
-                <div className='name-col'>
+                <div className='name-col-list'>
                     <p className='coin-symbol td-shrink-list'>{coin.symbol}</p>
                     <p className='coin-name td-shrink-list'>{coin.name}</p>
                 </div>
