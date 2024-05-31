@@ -76,7 +76,7 @@
     transition: all 0.3s ease;
 }
 
-.icon-chip {
+.icon-chip, .icon-chip-red {
     border: 2px solid var(--green);
     border-radius: 50%;
     height: 2rem !important;
@@ -90,11 +90,11 @@
 }
 
 .icon-chip-red {
-    border: 2px solid var(--red);
+    border: 2px solid var(--red)!important;
     color: var(--red);
 }
 .icon-chip-red:hover {
-    background-color: var(--red);
+    background-color: var(--red)!important;;
     color: var(--white);
     transition: all 0.3s ease;
 }

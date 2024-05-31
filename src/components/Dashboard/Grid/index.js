@@ -49,7 +49,7 @@ function Grid({ coin }) {
                 <div className='price-chip-grid chip-red'>
                     {coin.price_change_percentage_24h.toFixed(2)}%
                 </div>
-                <div className='icon-chip icon-chip-red'>
+                <div className='icon-chip-red icon-chip-red'>
                     <TrendingDownRoundedIcon/>
                 </div>
             </div>
