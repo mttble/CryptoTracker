@@ -6,6 +6,8 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+
 
 function ComparePage() {
   const [coins, setCoins] = useState([]);
@@ -17,6 +19,15 @@ function ComparePage() {
   const [calculatedPrice, setCalculatedPrice] = useState(null);
   const [multiplier, setMultiplier] = useState(null);
   const [showComparisonCard, setShowComparisonCard] = useState(false);
+
+  const handleSwitchCoins = () => {
+    const tempCoin1 = selectedCoin1;
+    const tempCoin1Data = coin1Data;
+    setSelectedCoin1(selectedCoin2);
+    setCoin1Data(coin2Data);
+    setSelectedCoin2(tempCoin1);
+    setCoin2Data(tempCoin1Data);
+  };
 
   // Fetch coins data
   useEffect(() => {
@@ -116,6 +127,7 @@ function ComparePage() {
                 />
               )}
             />
+            <Button variant="contained" onClick={handleSwitchCoins}>Switch</Button>
             <Autocomplete
               value={coin2Data}
               onChange={handleSelectCoin2}
