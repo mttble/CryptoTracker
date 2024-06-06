@@ -22,7 +22,11 @@ function ComparePage() {
   useEffect(() => {
     get100Coins()
       .then(coinsData => {
-        setCoins(coinsData);
+        const filteredCoins = coinsData.filter(coin => {
+          return coin.id !== 'tether' && coin.id !== 'usd-coin' && coin.id !== 'first-digital-usd' && coin.id !== 'ethena-usde';
+        });
+        setCoins(filteredCoins);
+        console.log('Coins data:', filteredCoins);
         setIsLoading(false);
       })
       .catch(error => {

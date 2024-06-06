@@ -10,11 +10,12 @@ import StarIcon from "@mui/icons-material/Star";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
 
-function CryptoList({ coin }) {
+function CryptoList({ coin, rank }) {
     const watchlist = JSON.parse(localStorage.getItem("watchlist"));
     const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
     return (
         <tr className='list-row'>
+            <p className='coin-rank'>{rank}</p>
             <Tooltip title="Coin Image" placement="top">
             <td className='td-image'>
                 <img src={coin.image} alt={coin.name} className='coin-logo'/>

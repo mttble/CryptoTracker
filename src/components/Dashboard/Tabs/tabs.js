@@ -8,7 +8,7 @@ import Grid from '../Grid';
 import './styles.css';
 import CryptoList from '../CryptoList';
 
-export default function TabsComponent({ coins }) {
+export default function TabsComponent({ coins, currentPage, itemsPerPage }) {
   const [value, setValue] = useState('grid');
 
   const handleChange = (event, newValue) => {
@@ -35,24 +35,24 @@ export default function TabsComponent({ coins }) {
   return (
     <ThemeProvider theme={theme}>
       <TabContext value={value}>
-          <TabList onChange={handleChange} variant='fullWidth'>
-            <Tab label="Grid" value="grid" sx={style} />
-            <Tab label="List" value="list" sx={style} />
-          </TabList>
+        <TabList onChange={handleChange} variant='fullWidth'>
+          <Tab label="Grid" value="grid" sx={style} />
+          <Tab label="List" value="list" sx={style} />
+        </TabList>
 
         <TabPanel value="grid">
           <div className='grid-flex'>
-            {coins.map((coin, i)=>{
-              return <Grid coin={coin} key={i} />
+            {coins.map((coin, i) => {
+              return <Grid coin={coin} rank={coin.originalIndex + 1} key={i} />
             })}
           </div>
         </TabPanel>
         <TabPanel value="list">
-        <table className='list-table'>
-          {coins.map((coin,i)=>{
-            return <CryptoList coin={coin} key={i} />
-          })}
-        </table>
+          <table className='list-table'>
+            {coins.map((coin, i) => {
+              return <CryptoList coin={coin} rank={coin.originalIndex + 1} key={i} />
+            })}
+          </table>
         </TabPanel>
       </TabContext>
     </ThemeProvider>

@@ -5,6 +5,7 @@
     background-color: var(--darkgrey);
     border: 2px solid var(--darkgrey);
     border-radius: 0.75rem;
+    padding-top: 10px;
 }
 
 .info-flex {
@@ -143,4 +144,16 @@
   .watchlist-icon-red {
     border: 2px solid var(--red);
     color: var(--red);
+  }
+
+  .rank-container {
+    position: absolute;
+    top: 0px; /* adjust as needed */
+    left: 10px; /* adjust as needed */
+  }
+
+  .rank {
+    color: var(--grey);
+    padding: 0;
+    margin-top: 5px;
   }

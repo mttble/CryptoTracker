@@ -7,7 +7,7 @@ import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist"
 import StarIcon from "@mui/icons-material/Star";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 
-function Grid({ coin }) {
+function Grid({ coin, rank }) {
     const watchlist = JSON.parse(localStorage.getItem("watchlist"));
     const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
     return (
@@ -28,6 +28,9 @@ function Grid({ coin }) {
         >
             {isCoinAdded ? <StarIcon /> : <StarOutlineIcon />}
         </div>
+            <div className='rank-container'>
+                <p className="rank">Rank: {rank}</p>
+            </div>
             <div className='info-flex'>
                 <img src={coin.image} alt={coin.name} className='coin-logo'/>
                 <div className='name-col'>

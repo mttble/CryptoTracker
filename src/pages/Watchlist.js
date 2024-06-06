@@ -17,7 +17,10 @@ function Watchlist() {
   const getData = async () => {
     const allCoins = await get100Coins();
     if (allCoins) {
-      setCoins(allCoins.filter((coin) => watchlist.includes(coin.id)));
+      const filteredCoins = allCoins
+        .map((coin, index) => ({ ...coin, originalIndex: index }))
+        .filter((coin) => watchlist.includes(coin.id));
+      setCoins(filteredCoins);
     }
   };
 

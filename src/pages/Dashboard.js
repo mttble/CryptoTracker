@@ -13,10 +13,12 @@ function DashboardPage() {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const itemsPerPage = 10; // Define items per page
+
   const handlePageChange = (event, value) => {
     setPage(value);
-    var previousIndex = (value - 1) * 10;
-    setPaginatedCoins(coins.slice(previousIndex, previousIndex + 10));
+    var previousIndex = (value - 1) * itemsPerPage;
+    setPaginatedCoins(coins.slice(previousIndex, previousIndex + itemsPerPage));
   }
 
   const onSearchChange = (e) => {
@@ -28,11 +30,11 @@ function DashboardPage() {
   )
 
   useEffect(() => {
-    // Call the get100Coins function to fetch coins data
     get100Coins()
       .then((coinsData) => {
-        setCoins(coinsData);
-        setPaginatedCoins(coinsData.slice((page - 1) * 10, page * 10));
+        const coinsDataWithIndex = coinsData.map((coin, index) => ({ ...coin, originalIndex: index }));
+        setCoins(coinsDataWithIndex);
+        setPaginatedCoins(coinsDataWithIndex.slice((page - 1) * itemsPerPage, page * itemsPerPage));
         setIsLoading(false);
       })
       .catch((error) => {
@@ -49,7 +51,7 @@ function DashboardPage() {
       ) : (
         <div>
           <Search search={search} onSearchChange={onSearchChange} />
-          <TabsComponent coins={search ? filteredCoins : paginatedcoins} />
+          <TabsComponent coins={search ? filteredCoins : paginatedcoins} currentPage={page} itemsPerPage={itemsPerPage} />
           {!search && <PaginationComponent page={page} handlePageChange={handlePageChange} />}
         </div>
       )}
