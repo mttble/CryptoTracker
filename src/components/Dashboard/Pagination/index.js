@@ -23,7 +23,7 @@ export default function PaginationComponent({ page, handlePageChange }) {
             border: "none",
           },
         }}
-        count={10}
+        count={4}
         page={page}
         onChange={(event,value) => handlePageChange(event, value)}
       />

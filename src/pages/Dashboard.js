@@ -13,7 +13,7 @@ function DashboardPage() {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  const itemsPerPage = 10; // Define items per page
+  const itemsPerPage = 25; // Define items per page
 
   const handlePageChange = (event, value) => {
     setPage(value);
