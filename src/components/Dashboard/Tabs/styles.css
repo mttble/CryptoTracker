@@ -14,3 +14,11 @@
     margin-right: auto;
 
 }
+
+@media (max-width: 800px) {
+    .grid-flex{
+        gap: 1.5rem;
+        margin: 1.5rem 0rem;
+    }
+    
+}
