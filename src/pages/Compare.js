@@ -112,15 +112,15 @@ function ComparePage() {
       ) : (
         <div className="compare-page">
           <h1 style={{ textAlign: 'center', marginBottom: '50px' }}>Compare Cryptocurrencies</h1>
-          <Box display="flex" justifyContent="center" gap={2} width="100%">
+          <Box display="flex" justifyContent="center" gap={0.5} width="100%">
           <Autocomplete
             value={coin1Data}
             onChange={handleSelectCoin1}
             options={coins}
             getOptionLabel={(option) => `${option.name} (${option.symbol})`}
             sx={isSmallScreen ? { 
-              width: '80%', 
-              transform: 'scale(0.8)'
+              width: '95%', 
+              transform: 'scale(0.9)'
             } : { 
               width: '250px'
             }}
@@ -144,8 +144,8 @@ function ComparePage() {
               options={coins}
               getOptionLabel={(option) => `${option.name} (${option.symbol})`}
               sx={isSmallScreen ? { 
-                width: '80%', 
-                transform: 'scale(0.8)'
+                width: '95%', 
+                transform: 'scale(0.9)'
               } : { 
                 width: '250px'
               }}
