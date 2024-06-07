@@ -164,9 +164,9 @@ function ComparePage() {
             />
           </Box>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-            <div style={{ display: 'flex', marginRight: '20px' }}>
-              <div style={{ paddingLeft:'4rem' }}>{renderComparisonCard(coin1Data)}</div>
-              <div style={{ marginRight: '20px', paddingLeft:'1.5rem' }}>{renderComparisonCard(coin2Data)}</div>
+            <div style={{ display: 'flex' }}>
+              <div style={{ paddingLeft:'20px' }} >{renderComparisonCard(coin1Data)}</div>
+              <div style={{ paddingLeft:'20px' }} >{renderComparisonCard(coin2Data)}</div>
             </div>
           </div>
           {showComparisonCard && (
