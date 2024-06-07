@@ -1,66 +1,69 @@
+/* Existing styles */
 .grid-container {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: 280px; /* Adjusted width */
+    height: 280px; /* Adjusted height */
     background-color: var(--darkgrey);
     border: 2px solid var(--darkgrey);
     border-radius: 0.75rem;
-    padding-top: 10px;
+    padding-top: 8px; /* Adjusted padding */
+    margin: 0.5rem; /* Adjusted margin for smaller gaps */
 }
 
 .info-flex {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
-    margin: 1.5rem;
+    gap: 0.75rem; /* Adjusted gap */
+    margin: 1rem; /* Adjusted margin */
 }
 
 .coin-logo {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3rem; /* Adjusted size */
+    width: 3rem; /* Adjusted size */
 }
 
 .name-col {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem; /* Adjusted gap */
 }
 
 .coin-symbol {
     color: var(--white);
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1rem; /* Adjusted font size */
     margin: 0;
 }
 
 .coin-name {
     color: var(--grey);
     text-transform: capitalize;
-    font-weight: light;
-    font-size: 1rem;
+    font-weight: 400; /* Adjusted font weight */
+    font-size: 0.85rem; /* Adjusted font size */
     margin: 0;
 }
 
 .chip-flex {
     display: flex;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 0.75rem; /* Adjusted gap */
     align-items: center;
-    margin: 1rem 1.5rem;
+    margin: 0.75rem 1rem; /* Adjusted margin */
 }
 
 .price-chip-grid {
     border: 2px solid var(--green);
     border-radius: 2rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.4rem 1.2rem; /* Adjusted padding */
     text-align: center;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem; /* Adjusted font size */
     color: var(--green);
-    min-width: 64px;
+    min-width: 60px; /* Adjusted width */
 }
+
 .price-chip-grid:hover, .icon-chip:hover {
     background-color: var(--green);
     color: var(--white);
@@ -71,6 +74,7 @@
     border: 2px solid var(--red) !important;
     color: var(--red) !important;
 }
+
 .chip-red:hover {
     background-color: var(--red)!important;
     color: var(--white)!important;
@@ -80,39 +84,40 @@
 .icon-chip, .icon-chip-red {
     border: 2px solid var(--green);
     border-radius: 50%;
-    height: 2rem !important;
-    width: 2rem !important;
+    height: 1.75rem !important; /* Adjusted size */
+    width: 1.75rem !important; /* Adjusted size */
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--green);
-    font-size: 1.1rem;
-    min-width: 2rem;
+    font-size: 0.95rem; /* Adjusted font size */
+    min-width: 1.75rem; /* Adjusted size */
 }
 
 .icon-chip-red {
     border: 2px solid var(--red)!important;
     color: var(--red);
 }
+
 .icon-chip-red:hover {
-    background-color: var(--red)!important;;
+    background-color: var(--red)!important;
     color: var(--white);
     transition: all 0.3s ease;
 }
 
 .info-container {
-    margin: 1.5rem;
+    margin: 1rem; /* Adjusted margin */
 }
 
 .coin-price {
     color: var(--green);
-    font-size: 1.2rem;
+    font-size: 1rem; /* Adjusted font size */
     font-weight: 600;
 }
 
 .total_volume {
     color: var(--grey);
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Adjusted font size */
     font-weight: 500;
 }
 
@@ -128,32 +133,142 @@
 
 .watchlist-icon {
     position: absolute;
-    top:1rem;
-    right: 1rem;
+    top: 0.8rem; /* Adjusted position */
+    right: 0.8rem; /* Adjusted position */
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid var(--green);
     border-radius: 50%;
     color: var(--green);
-    padding: 0.5rem;
-    height: 1.5rem;
-    width: 1.5rem !important;
-  }
-  
-  .watchlist-icon-red {
+    padding: 0.4rem; /* Adjusted padding */
+    height: 1.2rem; /* Adjusted size */
+    width: 1.2rem !important; /* Adjusted size */
+}
+
+.watchlist-icon-red {
     border: 2px solid var(--red);
     color: var(--red);
-  }
+}
 
-  .rank-container {
+.rank-container {
     position: absolute;
-    top: 0px; /* adjust as needed */
-    left: 10px; /* adjust as needed */
-  }
+    top: 0px; /* Adjust as needed */
+    left: 8px; /* Adjust as needed */
+}
 
-  .rank {
+.rank {
     color: var(--grey);
     padding: 0;
-    margin-top: 5px;
-  }
+    margin-top: 4px; /* Adjusted margin */
+}
+
+.grid-flex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust as needed */
+    gap: 1rem; /* Adjust this value to decrease gap */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 800px) {
+
+    .grid-flex {
+        gap: 0.5rem; /* Decrease gap for smaller screens */
+    }
+    .grid-container {
+        width: 180px; /* Adjusted width */
+        height: 180px; /* Adjusted height */
+        padding-top: 4px; /* Adjusted padding */
+        transform: scale(1); /* Scale down */
+        margin: 0; /* Reduce margin for smaller gaps */
+        padding: 0;
+    }
+
+    .info-flex {
+        gap: 0.4rem; /* Adjusted gap */
+        margin: 0.8rem; /* Adjusted margin */
+    }
+
+    .coin-logo {
+        height: 1.8rem; /* Adjusted size */
+        width: 1.8rem; /* Adjusted size */
+    }
+
+    .coin-symbol {
+        font-size: 0.85rem; /* Adjusted font size */
+    }
+
+    .coin-name {
+        font-size: 0.7rem; /* Adjusted font size */
+    }
+
+    .chip-flex {
+        gap: 0.4rem; /* Adjusted gap */
+        margin: 0.4rem 0.8rem; /* Adjusted margin */
+    }
+
+    .price-chip-grid {
+        padding: 0.25rem 0.8rem; /* Adjusted padding */
+        font-size: 0.8rem; /* Adjusted font size */
+    }
+
+    .icon-chip, .icon-chip-red {
+        height: 1.25rem; /* Adjusted size */
+        width: 1.25rem; /* Adjusted size */
+        font-size: 0.8rem; /* Adjusted font size */
+    }
+
+    .info-container {
+        margin: 0.8rem; /* Adjusted margin */
+    }
+
+    .coin-price {
+        font-size: 0.85rem; /* Adjusted font size */
+    }
+
+    .total_volume {
+        font-size: 0.6rem; /* Adjusted font size */
+    }
+
+    .watchlist-icon {
+        top: 0.4rem; /* Adjusted position */
+        right: 0.4rem; /* Adjusted position */
+        height: 1rem; /* Adjusted size */
+        width: 1rem !important; /* Adjusted size */
+        padding: 0.1rem; /* Ensure this is consistent for circular shape */
+    }
+
+    .rank-container {
+        top: 0.2rem; /* Adjust position */
+        left: 0.4rem; /* Adjust position */
+    }
+
+    .rank {
+        font-size: 0.4rem;
+        margin-top: 2px;
+    }
+}
+
+/* Assuming this is the parent container */
+.grid-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust as needed */
+    margin: -0.5rem; /* Adjust this value to manage the gap */
+}
+
+/* Adjust child elements margin to create space between them */
+.grid-flex > .grid-container {
+    margin: 0.5rem; /* Adjust this value to decrease gap */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 800px) {
+    .grid-flex {
+        margin: -0.25rem; /* Decrease margin for smaller screens */
+    }
+
+    .grid-flex > .grid-container {
+        margin: -0.5rem; /* Decrease gap for smaller screens */
+    }
+}
