@@ -50,6 +50,15 @@ function ComparePage() {
       });
   }, []);
 
+  // Function to format prices correctly
+  const formatPrice = (price) => {
+    if (price < 0.01) {
+      return price.toFixed(6); // Show up to 6 decimal places for very small values
+    } else {
+      return price.toLocaleString(); // Use default formatting for larger values
+    }
+  };
+
   // Handler for selecting coin 1
   const handleSelectCoin1 = (event, value) => {
     setSelectedCoin1(value?.id || '');
@@ -78,18 +87,29 @@ function ComparePage() {
 
   // Render comparison card
   const renderComparisonCard = (coinData) => {
-    if (coinData) {
-      return (
-        <div className="comparison-card">
-          <h2 style={{fontSize: isSmallScreen ? '1.2rem' : '2rem'}}>{coinData.name} ({coinData.symbol})</h2>
-          <p style={{fontSize: isSmallScreen ? '1rem' : '1.5rem'}}>Market Cap: ${coinData.market_cap.toLocaleString()}</p>
-          <p style={{fontSize: isSmallScreen ? '1rem' : '1.5rem'}}>Price: ${coinData.current_price.toLocaleString()}</p>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  };
+  if (coinData) {
+    return (
+      <div className="comparison-card">
+        <h2 style={{fontSize: isSmallScreen ? '1.2rem' : '2rem'}}>{coinData.name} ({coinData.symbol})</h2>
+        <p style={{fontSize: isSmallScreen ? '1rem' : '1.5rem'}}>Market Cap: ${coinData.market_cap.toLocaleString()}</p>
+        <p style={{fontSize: isSmallScreen ? '1rem' : '1.5rem'}}>Price: ${formatPrice(coinData.current_price)}</p>
+      </div>
+    );
+  } else {
+    return null;
+  }
+};
+
+{showComparisonCard && (
+  <div className="comparison-card" style={{ textAlign: 'center', marginTop: '20px' }}>
+    <h2 style={{color: '#3A80E9', fontSize: isExtraSmallScreen ? '1.2rem' : '2rem'}}>
+      {coin1Data?.name} with the Market Cap of {coin2Data?.name}
+    </h2>
+    <p style={{fontSize: isExtraSmallScreen ? '1rem' : '1.5rem'}}>
+      Price: ${formatPrice(calculatedPrice)} ({multiplier?.toFixed(2)}x)
+    </p>
+  </div>
+)}
 
   // Custom dark theme
   const darkTheme = createTheme({
@@ -171,8 +191,12 @@ function ComparePage() {
           </div>
           {showComparisonCard && (
             <div className="comparison-card" style={{ textAlign: 'center', marginTop: '20px' }}>
-              <h2 style={{color: '#3A80E9', fontSize: isExtraSmallScreen ? '1.2rem' : '2rem'}}>{coin1Data?.name} with the Market Cap of {coin2Data?.name}</h2>
-              <p style={{fontSize: isExtraSmallScreen ? '1rem' : '1.5rem'}}>Price: ${calculatedPrice?.toLocaleString()} ({multiplier?.toFixed(2)}x)</p>
+              <h2 style={{color: '#3A80E9', fontSize: isExtraSmallScreen ? '1.2rem' : '2rem'}}>
+                {coin1Data?.name} with the Market Cap of {coin2Data?.name}
+              </h2>
+              <p style={{fontSize: isExtraSmallScreen ? '1rem' : '1.5rem'}}>
+                Price: ${formatPrice(calculatedPrice)} ({multiplier?.toFixed(2)}x)
+              </p>
             </div>
           )}
           </div>
