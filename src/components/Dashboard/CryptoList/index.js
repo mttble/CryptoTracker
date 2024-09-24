@@ -17,6 +17,7 @@ function CryptoList({ coin, rank }) {
     const tradingViewUrl = `https://www.tradingview.com/chart/?symbol=BINANCE%3A${coin.symbol}USDT`;
 
     return (
+        <>
         <a href={tradingViewUrl} target="_blank" rel="noopener noreferrer">
             <tr className='list-row'>
                 <p className='coin-rank'>{rank}</p>
@@ -105,6 +106,9 @@ function CryptoList({ coin, rank }) {
                 </td>
             </tr>
         </a>
+        <div className='row-separator'></div>
+        </>
+        
     );
 }
 

@@ -77,6 +77,13 @@
     color: var(--red);
   }
 
+  .row-separator {
+    width: 100%;
+    height: 1px;
+    background-color: #2b2a2a;
+    margin: 0px 0;
+}
+
 @media only screen and (max-width: 1200px) {
     .list-table {
         width: 95%;
