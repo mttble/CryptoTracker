@@ -6,12 +6,14 @@ import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 import StarIcon from "@mui/icons-material/Star";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import { useCurrency } from "../../../context/CurrencyContext";
 
 function Grid({ coin, rank }) {
     const watchlist = JSON.parse(localStorage.getItem("watchlist"));
     const [isCoinAdded, setIsCoinAdded] = useState(watchlist?.includes(coin.id));
+    const { symbol } = useCurrency();
 
-    const tradingViewUrl = `https://www.tradingview.com/chart/?symbol=BINANCE%3A${coin.symbol}USDT`;
+    const tradingViewUrl = `/coin?id=${coin.id}`;
 
     return (
         <a href={tradingViewUrl} target="_blank" rel="noopener noreferrer">
@@ -65,7 +67,7 @@ function Grid({ coin, rank }) {
                             color: coin.price_change_percentage_24h < 0 ? "var(--red)" : "var(--green)"
                         }}
                     >
-                        ${coin.current_price.toLocaleString()}
+                        {symbol}{coin.current_price.toLocaleString()}
                     </h3>
                     <p className='total_volume'>Total Volume: {coin.total_volume.toLocaleString()}</p>
                     <p className='total_volume'>Market Cap: {coin.market_cap.toLocaleString()}</p>

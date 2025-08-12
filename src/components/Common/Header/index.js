@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../Button';
 import TemporaryDrawer from './drawer';
 import './styles.css';
+import CurrencySelector from '../CurrencySelector';
 
 
 function Header() {
@@ -29,6 +30,9 @@ function Header() {
                     <Button text={'Dashboard'} />
                 </Link>
 
+                <div style={{ marginLeft: 16 }}>
+                    <CurrencySelector />
+                </div>
             </div>
             <div className='mobile-drawer'><TemporaryDrawer/></div>
         </div>

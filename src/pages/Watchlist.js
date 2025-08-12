@@ -3,10 +3,12 @@ import Button from "../components/Common/Button";
 import Header from "../components/Common/Header";
 import TabsComponent from '../components/Dashboard/Tabs/tabs';
 import { get100Coins } from "../functions/get100Coins";
+import { useCurrency } from "../context/CurrencyContext";
 
 function Watchlist() {
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
   const [coins, setCoins] = useState([]);
+  const { currency } = useCurrency();
 
   useEffect(() => {
     if (watchlist) {
@@ -15,7 +17,7 @@ function Watchlist() {
   }, []);
 
   const getData = async () => {
-    const allCoins = await get100Coins();
+    const allCoins = await get100Coins(currency);
     if (allCoins) {
       const filteredCoins = allCoins
         .map((coin, index) => ({ ...coin, originalIndex: index }))

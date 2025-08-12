@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Common/Header';
 import TabsComponent from '../components/Dashboard/Tabs/tabs';
-import axios from 'axios';
 import Search from '../components/Dashboard/Search';
 import PaginationComponent from '../components/Dashboard/Pagination';
 import Loader from '../components/Common/Loader';
 import { get100Coins } from '../functions/get100Coins'; // Import the get100Coins function
+import { useCurrency } from '../context/CurrencyContext';
+import { getGlobalMarketData } from '../functions/getMarketData';
+import { Link } from 'react-router-dom';
 
 function DashboardPage() {
   const [coins, setCoins] = useState([]);
@@ -13,7 +15,9 @@ function DashboardPage() {
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [global, setGlobal] = useState(null);
   const itemsPerPage = 25; // Define items per page
+  const { currency, symbol } = useCurrency();
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -30,7 +34,7 @@ function DashboardPage() {
   )
 
   useEffect(() => {
-    get100Coins()
+    get100Coins(currency)
       .then((coinsData) => {
         const coinsDataWithIndex = coinsData.map((coin, index) => ({ ...coin, originalIndex: index }));
         setCoins(coinsDataWithIndex);
@@ -41,7 +45,14 @@ function DashboardPage() {
         console.error('Error fetching coins data:', error);
         setIsLoading(false);
       });
-  }, [page]);
+  }, [page, currency]);
+
+  useEffect(() => {
+    // fetch global market data
+    getGlobalMarketData(currency)
+      .then(setGlobal)
+      .catch(() => {});
+  }, [currency]);
 
   return (
     <>
@@ -50,6 +61,32 @@ function DashboardPage() {
         <Loader />
       ) : (
         <div>
+          {global && (
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 16,
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '12px 16px',
+              background: 'var(--darkgrey)',
+              borderRadius: 12,
+              margin: '16px',
+            }}>
+              <div>
+                <strong>Global Market Cap:</strong> {symbol}{global.totalMarketCap?.toLocaleString()}
+              </div>
+              <div>
+                <strong>24h Volume:</strong> {symbol}{global.totalVolume?.toLocaleString()}
+              </div>
+              <div>
+                <strong>BTC Dominance:</strong> {global.dominance?.btc?.toFixed(1)}%
+              </div>
+              <div>
+                <strong>Active Coins:</strong> {global.activeCryptocurrencies}
+              </div>
+            </div>
+          )}
           <Search search={search} onSearchChange={onSearchChange} />
           {!search && <PaginationComponent page={page} handlePageChange={handlePageChange} />}
           <TabsComponent coins={search ? filteredCoins : paginatedcoins} currentPage={page} itemsPerPage={itemsPerPage} />
